@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import { LogOut, Image, Users, Calendar, Settings, Mail } from "lucide-react";
+import { LogOut, Image, Users, Calendar, Settings, Mail, QrCode } from "lucide-react";
 import SlidesManager from "../components/admin/SlidesManager";
 import EventsManager from "../components/admin/EventsManager";
 import MembersManager from "../components/admin/MembersManager";
 import SettingsManager from "../components/admin/SettingsManager";
 import MessagesManager from "../components/admin/MessagesManager";
+import AttendanceManager from "../components/admin/AttendanceManager";
 
-type Tab = "slides" | "members" | "events" | "messages" | "settings";
+type Tab = "slides" | "members" | "events" | "attendance" | "messages" | "settings";
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState<Tab>("slides");
@@ -29,6 +30,7 @@ export default function AdminDashboard() {
     { id: "slides" as Tab, label: "Slide Homepage", icon: Image },
     { id: "members" as Tab, label: "Anggota", icon: Users },
     { id: "events" as Tab, label: "Event", icon: Calendar },
+    { id: "attendance" as Tab, label: "Absensi", icon: QrCode },
     { id: "messages" as Tab, label: "Pesan", icon: Mail },
     { id: "settings" as Tab, label: "Pengaturan", icon: Settings },
   ];
@@ -83,6 +85,7 @@ export default function AdminDashboard() {
           {activeTab === "slides" && <SlidesManager />}
           {activeTab === "members" && <MembersManager />}
           {activeTab === "events" && <EventsManager />}
+          {activeTab === "attendance" && <AttendanceManager />}
           {activeTab === "messages" && <MessagesManager />}
           {activeTab === "settings" && <SettingsManager />}
         </div>

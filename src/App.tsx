@@ -9,6 +9,9 @@ import ContactPage from "./pages/ContactPage";
 import AdminLoginPage from "./pages/AdminLoginPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFoundPage from "./pages/NotFoundPage";
+import AttendanceSeniorPage from "./pages/AttendanceSeniorPage";
+import AttendanceUmumPage from "./pages/AttendanceUmumPage";
+import AttendancePanitiaPage from "./pages/AttendancePanitiaPage";
 import AnimatedBackground from "./components/AnimatedBackground";
 import PageTransition from "./components/PageTransition";
 import { AnimationProvider } from "./contexts/AnimationContext";
@@ -67,6 +70,9 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route path="/attendance/senior/:eventId" element={<AttendanceSeniorPage />} />
+              <Route path="/attendance/umum/:eventId" element={<AttendanceUmumPage />} />
+              <Route path="/attendance/panitia/:eventId" element={<AttendancePanitiaPage />} />
               <Route
                 path="/*"
                 element={
